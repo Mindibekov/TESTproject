@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url(r'^startup/', include('HRONION.urls')),
+    url(r'^', include('HRONION.urls')),
     url(r'^admin/', admin.site.urls),
  
 ]

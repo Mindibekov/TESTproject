@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import telebot
+
 def sent_to_atknin_bot(message,b):
 	chat_id_d= 299006631#dima
 	chat_id_v = 180380877#vanya
