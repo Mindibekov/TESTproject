@@ -1,4 +1,4 @@
-#!/home/quattro/TESTproject/myenv/bin/python
+#!/Users/Atknini/Git/TESTproject/myenv/bin/python
 
 import sys
 import getopt
