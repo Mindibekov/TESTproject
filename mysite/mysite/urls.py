@@ -1,7 +1,9 @@
-"""mysite URL Configuration
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+"""myproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+    https://docs.djangoproject.com/en/1.9/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -13,9 +15,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
+    url(r'^startup/', include('HRONION.urls')),
     url(r'^admin/', admin.site.urls),
+ 
 ]
+
