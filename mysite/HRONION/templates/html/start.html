@@ -1,98 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load static %}
-    <script type="text/javascript" language="javascript" src="{% static "HRONION/js/jquery.min.js" %}" ></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/static/HRONION/img/icon.ico">
-    <title>{% block web_title %}[PHYSO]{% endblock %}</title>
-    <link href="{% static "HRONION/css/bootstrap.css" %}" rel="stylesheet">
-    <script src="{% static "HRONION/js/bootstrap.js"%}"></script>
-    <script type="text/javascript" src=" {% static "HRONION/js/bootstrap-filestyle.js" %}"> </script>
-    <link href="{% static "HRONION/css/cover.css" %}" rel="stylesheet">
+<html class="js">
 
-   
+<head>
 
-</head>
+  <!-- EXPERIMENT A2 tracking code -->
+  <!-- Google Analytics Content Experiment code -->
+  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
+  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/files/1/0691/5403/t/125/assets/hitsanalytics.js?11608832055738061282&amp;shop=strapping-io.myshopify.com"></script>
+  <script type="text/javascript" async="" src="https://dfjp7gc2z6ooe.cloudfront.net/assets/sky_pilot.js?shop=strapping-io.myshopify.com"></script><script type="text/javascript" async="" src="//cdn.shopify.com/s/javascripts/shopify_stats.js?v=6"></script>
+  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
+  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
+  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/files/1/0691/5403/t/125/assets/hitsanalytics.js?11608832055738061282&amp;shop=strapping-io.myshopify.com"></script>
+  <script type="text/javascript" async="" src="https://dfjp7gc2z6ooe.cloudfront.net/assets/sky_pilot.js?shop=strapping-io.myshopify.com"></script><script type="text/javascript" async="" src="http://www.google-analytics.com/analytics.js"></script>
+  <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
+  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/javascripts/trekkie.storefront.min.js?v=2016.09.01.1"></script><script type="text/javascript" async="" src="//cdn.shopify.com/s/javascripts/shopify_stats.js?v=6"></script>
 
-<body>
+ 
 
-    <div class="site-wrapper">
+  <script src="http://www.google-analytics.com/ga_exp.js?utmxkey=108454052-4&amp;utmx=&amp;utmxx=&amp;utmxtime=1478376116470" type="text/javascript" charset="utf-8"></script>
 
-      <div class="site-wrapper-inner">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
-        <div class="cover-container">
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                
-                  <li>
-                    {% if user.is_authenticated %}  
-                       {{ user.username }}
-                    {% else %}
-                        <form class="form-inline" method="post">
-                        {% csrf_token %}
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                            <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
-                          </div>
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword3">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
-                          </div>
-                          <button type="submit" class="btn btn-default">Sign in</button>
-                        </form>
-                       {% endif %}
 
-                  </li>
-                 
-                </ul>
-              </nav>
-            </div>
+<!-- title tag-->
+<title>
+ Timanage
+</title>
+
+
+<!-- styles -->
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="//cdn.shopify.com/s/files/1/0691/5403/t/128/assets/style.scss.css?13829517236742464088" rel="stylesheet" type="text/css" media="all">
+
+
+<body id="bootstrap-themes" class="swag-line template-index">
+  <div class="container-overflow-wrap">
+
+  <div class="container">
+    <nav class="navbar navbar-default navbar-tall navbar-full" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#global-nav">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/start/">Timanage.io</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="global-nav">
+    <div class="navbar-right">
+      <ul class="nav navbar-nav">
+          {% if user.is_authenticated %} 
+          <li>
+            <a href="#">{{ user.username }}</a>
+          </li>
+          {% endif %}
+
+      </ul>
+       {% if user.is_authenticated %} 
+       {% else %}
+        <form class="navbar-form navbar-left"  method="post">
+         {% csrf_token %}
+          <div class="form-group">
+           <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
           </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Приветствие</h1>
-            <p class="lead">
-                {% if user.is_authenticated %}
-                  <p>Добро пожаловать, {{ user.username }}. Спасибо, что не забываете нас.</p>
-                {% else %}
-                  <p>Добро пожаловать, незнакомец. Кто вы?</p>
-                  {{her}}
-                {% endif %}            
-            </p>
-            <p class="lead">
-              <a href="/startup/login/" class="btn btn-lg btn-default">Login</a>
-            </p>
+           <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
           </div>
+          <button type="submit" class="btn btn-default">Sign in</button>
+        </form>
+      {% endif %}
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="/admin/">admin panel</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>
 
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <form class="form-inline" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
         </div>
+        <div class="form-group">
+              <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
+        </div>
+        <button type="submit" class="btn btn-default">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>   
 
+
+
+
+<div class="hero hero-homepage">
+  <span class="glyphicon glyphicon-object-align-left" aria-hidden="true">TI</span>
+  <h1 class="hero-header">Приветствие</h1>
+  <h4 class="text-muted">
+  {% if user.is_authenticated %}
+    <p>Добро пожаловать, {{ user.username }}. Спасибо, что не забываете нас.</p>
+  {% else %}
+    <p>Добро пожаловать, незнакомец. Кто вы?</p>
+    {{her}}
+    </h4>
+     <a class="btn" href="/start/register/">Зарегестрироваться</a>
+  {% endif %} 
+  <p>...</p>
+</div>
+
+<div class="visible-xs row text-center homepage-xs-grid">
+  <div class="col-sm-4">
+    <img src="//cdn.shopify.com/s/files/1/0691/5403/t/128/assets/components-icon.svg?13829517236742464088">
+    <h3>Текст для мелких экранов</h3>
+    <p class="text-muted">да для мелких </p>
+  </div>
+
+  <div class="col-sm-4">
+    <img src="//cdn.shopify.com/s/files/1/0691/5403/t/128/assets/script-icon.svg?13829517236742464088">
+    <h3>Текст для мелких экранов 2</h3>
+    <p class="text-muted">да для мелких 2</p>
+  </div>
+
+  <div class="col-sm-4">
+    <img src="//cdn.shopify.com/s/files/1/0691/5403/t/128/assets/unlimited-icon.svg?13829517236742464088">
+    <h3>Текст для мелких экранов 3</h3>
+    <p class="text-muted">да для мелких экранов 3</p>
+  </div>
+</div>
+
+<div class="hidden-xs">
+  <div class="row row-padded">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h2 class="m-b-md">Будем организовавывать вас</h2>
+      <h5 class="text-muted"></h5>
+    </div>
+  </div>
+
+  <div class="row row-backbordered">
+    <div class="col-sm-12">
+      <div class="panel panel-default panel-floating panel-floating-inline">
+        <div class="panel-body">
+          <div class="panel-content">
+            <h5 class="m-b-0"><strong>Напиши свой email</strong></h5>
+            <p class="text-muted"><small>и мы потом будем тебе писать, каждый день </small></p>
+          </div>
+          <div class="panel-actions">
+            <form class="form-inline pull-right" method="post" name="subscribe" target="_blank" novalidate="">
+            {% csrf_token %}
+              <input class="form-control input-lg panel-email-input" name="EMAIL_subscribers" type="email" placeholder="Email">
+              <!-- This is to throw off spambots -->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e3428dd6b8fda73bc5ba8b6e6_198881a019" tabindex="-1" value=""></div>
+              <input type="submit" value="Subscribe" name="subscibe" id="mc-embedded-subscribe" class="btn btn-lg">
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 
+
+  <div class="row row-padded row-bordered row-centered">
+    <div class="col-sm-6">
+      <div class="homepage-terminal-example">
+        <p class="m-b-md">
+          <span class="text-muted">&gt; $ npm install</span><br>
+          Everything installed!
+        </p>
+        <p class="m-b-md">
+          <span class="text-muted">&gt; $ npm start</span><br>
+          Server started http://localhost:9001<br>
+          LiveReload started<br>
+          Opening http://localhost:9001/docs/
+        </p>
+        <p>
+          <span class="text-muted">&gt; $ is that it?</span><br>
+          Yup, it's that simple.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-5 col-sm-offset-1">
+      <h3><strong>1</strong></h3>
+      <h4 class="m-b-md">3232</h4>
+      <a class="btn btn-primary" target="_blank" href="#">bb</a>
+    </div>
+  </div>
+
+  <div class="row row-padded text-center">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h3><strong>Free updates and support</strong></h3>
+      <h4 class="m-b-md"><a href="mailto:Xakac19rus@mail.ru">Xakac19rus@mail.ru</a>
+       <a href="mailto:atknini@yahoo.com">atknini@yahoo.com</a>.
+       </h4>
+      <a class="btn btn-primary" href="#">Read more in our FAQ</a>
+    </div>
+  </div>
+
+  <div class="row row-padded homepage-grid p-t text-center">
+    <div class="col-sm-4">
+      <img class="homepage-grid-icon" src="#">
+      <h5><strong>Free updates</strong></h5>
+      <p class="text-muted">Each theme comes with updates for the life of the theme. This means you'll never pay for any bug-fixes and compatibility upgrades for your theme, ever.</p>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-</body>
+    <div class="col-sm-4">
+      <img class="homepage-grid-icon" src="#">
+      <h5><strong>Licenses</strong></h5>
+      <p class="text-muted">All our themes have two simple <a href="/pages/our-license">licenses</a>. Our Multiple Use License is for building sites for yourself and your clients. Our Extended License is for redistrubtion and resale.</p>
+    </div>
 
-</html>
+    <div class="col-sm-4">
+      <img class="homepage-grid-icon" src="#">
+      <h5><strong>Technical support</strong></h5>
+      <p class="text-muted">We're here to help with your Bootstrap Themes questions. Shoot us an email at <a href="mailto:themes@getbootstrap.com">themes@getbootstrap.com</a> and we'll get back to you ASAP.</p>
+    </div>
+  </div>
+
+  <div class="row row-backbordered">
+    <div class="col-sm-12">
+      <div class="panel panel-default panel-floating panel-floating-inline">
+        <div class="panel-body">
+          <a class="panel-thumbnail" href="#">
+            <img src="#">
+          </a>
+          <div class="panel-content">
+            <h5 class="m-b-0 m-t-0"><strong>bblblblblb!</strong></h5>
+            <p class="text-muted m-b-0"><small>bkbkbk</small></p>
+          </div>
+          <div class="panel-actions">
+            <a class="btn btn-lg pull-right" href="/collections/all">Explore themes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  
+  <footer class="footer clearfix footer-borderless">
+
+  <ul class="footer-social-buttons">
+    <li class="btn-follow hidden-xs">
+      2
+    </li>
+    <li class="btn-tweet">
+     2
+    </li>
+  </ul>
+
+  <p class="hidden-xs">
+    Designed and built with all the love in the world by
+    <a href="#" target="_blank">@1</a>,
+    <a href="#" target="_blank">@2</a>, and
+    <a href="#" target="_blank">@3</a>.
+  </p>
+
+  <ul class="footer-list">
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">About</a>
+      </li>
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">Terms</a>
+      </li>
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">Privacy</a>
+      </li>
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">Licenses</a>
+      </li>
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">FAQ</a>
+      </li>
+    
+      <li class="footer-list-item">
+        <a class="footer-list-link" href="#">Bootstrap</a>
+      </li>
+    
+  </ul>
+</footer>
+
+
+  </div>
+</body></html>

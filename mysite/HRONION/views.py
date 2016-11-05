@@ -4,9 +4,10 @@ from django.shortcuts import render
 import os, sys
 from django.contrib import auth
 from django.http import Http404, HttpResponse 
+from django.http import HttpRequest 
 import HRONION.models as models 
 from django.contrib import auth
-
+import datetime
 
 
 import HRONION.bot_inform as bot_inform #  информация в месенджере телеграмм: bot_inform.sent_to_atknin_bot(massage, telegram_whom)
@@ -15,6 +16,11 @@ telegram_whom = "both"#v - ваня d - дима, остальное любое 
 # Create your views here.
 def start(request):
 	if request.method == "POST":
+		if request.POST["EMAIL_subscribers"]:
+			subscriber = models.subscribers.objects.create(e_mail=request.POST["EMAIL_subscribers"])
+			subscriber.sub_date = datetime.datetime.now() 
+			subscriber.save()
+			return render(request, 'html/start.html')
 		name = request.POST["login"]
 		password = request.POST["password"]
 		user = auth.authenticate(username=name, password=password)
