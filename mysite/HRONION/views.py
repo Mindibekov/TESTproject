@@ -4,10 +4,9 @@ from django.shortcuts import render
 import os, sys
 from django.contrib import auth
 from django.http import Http404, HttpResponse 
-
 import HRONION.models as models 
-
 from django.contrib import auth
+
 
 
 import HRONION.bot_inform as bot_inform #  информация в месенджере телеграмм: bot_inform.sent_to_atknin_bot(massage, telegram_whom)
@@ -37,10 +36,24 @@ def start(request):
 
 def register(request):
 	if request.method == "POST":
-		last_name = request.POST["Фамилия"]
-		first_name = request.POST["Имя"]
-		middle_name = request.POST["Отчество"]
+		last_name = request.POST["last_name"]
+		first_name = request.POST["first_name"]
+		middle_name = request.POST["middle_name"]
 		email = request.POST["email"]
-		password = request.POST["пароль"]
-		conf_password = request.POST["Подтвердите пароль"]
-	return render(request, 'html/registration_form.html')	
+		password = request.POST["password"]
+		conf_password = request.POST["conf_password"]
+		login = request.POST["login"]
+		new_user = models.users.objects.create(username=login)
+		new_user.first_name=first_name
+		new_user.last_name=last_name
+		new_user.email=email
+		if password == conf_password:
+			new_user.password=password 
+			new_user.save()
+		else:
+			error = "Пароли не совпадают"
+			return render(request, 'registration/registration_form.html', {'error': error, "POST":request.POST})	 
+		
+
+
+	return render(request, 'registration/registration_form.html')	

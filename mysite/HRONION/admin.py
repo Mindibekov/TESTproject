@@ -6,6 +6,6 @@ import HRONION.models
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
-	list_display = (u'username', u'email')
+	list_display = (u'username', u'email', 'Institute')
 
 admin.site.register(HRONION.models.users, UserAdmin)
