@@ -34,3 +34,13 @@ def start(request):
 		massage = 'Еще одна попытка'
 		# bot_inform.sent_to_atknin_bot(massage, telegram_whom)
 		return render(request, 'html/start.html')
+
+def register(request):
+	if request.method == "POST":
+		last_name = request.POST["Фамилия"]
+		first_name = request.POST["Имя"]
+		middle_name = request.POST["Отчество"]
+		email = request.POST["email"]
+		password = request.POST["пароль"]
+		conf_password = request.POST["Подтвердите пароль"]
+	return render(request, 'html/registration_form.html')	

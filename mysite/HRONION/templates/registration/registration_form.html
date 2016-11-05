@@ -1,0 +1,98 @@
+
+<html lang="ru-Ru">
+  <head>
+    {% load static %}
+    <script type="text/javascript" language="javascript" src="{% static "HRONION/js/jquery.min.js" %}" ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/HRONION/img/icon.ico">
+    <title>{% block web_title %}[PHYSO]{% endblock %}</title>
+    <link href="{% static "HRONION/css/bootstrap.css" %}" rel="stylesheet">
+    <script src="{% static "HRONION/js/bootstrap.js"%}"></script>
+    <script type="text/javascript" src=" {% static "HRONION/js/bootstrap-filestyle.js" %}"> </script>
+    <link href="{% static "HRONION/css/cover.css" %}" rel="stylesheet">
+  
+</head>
+
+		
+
+
+<body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Регистрация</h3>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Hi du du</h1>
+          <form class="form-horizontal" role="form">
+                {% csrf_token %}
+                <div class="center-block">
+                 <div class="form-group">
+				    <label for="inputUserName" class="col-sm-2 control-label">Фамилия</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputUserName" placeholder="Фамилия">
+				    </div>
+				  </div>
+				   <div class="form-group">
+				    <label for="inputUserName" class="col-sm-2 control-label">Имя</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputUserName" placeholder="Имя">
+				    </div>
+				  </div>
+				   <div class="form-group">
+				    <label for="inputUserName" class="col-sm-2 control-label">Отчество</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputUserName" placeholder="Отчество">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="email" class="form-control" id="inputEmail3" placeholder="email">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="пароль">
+				    </div>
+				  </div>
+				   </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">Подверждение</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="Подтвердите пароль">
+				    </div>
+				  </div>
+				   <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button href="/start/register/" class="btn btn-lg btn-default">Регистрация</button>
+				    </div>
+				  </div>
+				</form>
+             </div>
+            </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
