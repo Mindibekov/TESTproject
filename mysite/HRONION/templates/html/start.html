@@ -34,18 +34,23 @@
                 <ul class="nav masthead-nav">
                 
                   <li>
-                    <form class="form-inline" method="post">
-                    {% csrf_token %}
-                      <div class="form-group">
-                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword3">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
-                      </div>
-                      <button type="submit" class="btn btn-default">Sign in</button>
-                    </form>
+                    {% if user.is_authenticated %}  
+                       {{ user.username }}
+                    {% else %}
+                        <form class="form-inline" method="post">
+                        {% csrf_token %}
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                            <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword3">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
+                          </div>
+                          <button type="submit" class="btn btn-default">Sign in</button>
+                        </form>
+                       {% endif %}
+
                   </li>
                  
                 </ul>
@@ -54,8 +59,15 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <h1 class="cover-heading">Приветствие</h1>
+            <p class="lead">
+                {% if user.is_authenticated %}
+                  <p>Добро пожаловать, {{ user.username }}. Спасибо, что не забываете нас.</p>
+                {% else %}
+                  <p>Добро пожаловать, незнакомец. Кто вы?</p>
+                  {{her}}
+                {% endif %}            
+            </p>
             <p class="lead">
               <a href="/startup/login/" class="btn btn-lg btn-default">Login</a>
             </p>
