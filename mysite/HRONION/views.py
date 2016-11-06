@@ -41,7 +41,9 @@ def start(request):
 		return render(request, 'html/start.html')
 
 def register(request):
+	check = 1
 	if request.method == "POST":
+		error = {}
 		last_name = request.POST["last_name"]
 		first_name = request.POST["first_name"]
 		middle_name = request.POST["middle_name"]
@@ -49,17 +51,20 @@ def register(request):
 		password = request.POST["password"]
 		conf_password = request.POST["conf_password"]
 		login = request.POST["login"]
-		new_user = models.users.objects.create(username=login)
-		new_user.first_name=first_name
-		new_user.last_name=last_name
-		new_user.email=email
-		if password == conf_password:
+		if not login:
+			error["error_login"] = "Login is empty"
+			check = 0
+		if not password == conf_password:
+			check = 0
+			error["error_password"] = "Пароли не совпадают"
+		if check == 1:
+			new_user = models.users.objects.create(username=login)
+			new_user.first_name=first_name
+			new_user.last_name=last_name
+			new_user.email=email
 			new_user.password=password 
 			new_user.save()
-		else:
-			error = "Пароли не совпадают"
-			return render(request, 'registration/registration_form.html', {'error': error, "POST":request.POST})	 
-		
+		return render(request, 'registration/registration_form.html', {"error":error, "POST":request.POST})	 
 
 
 	return render(request, 'registration/registration_form.html')	
