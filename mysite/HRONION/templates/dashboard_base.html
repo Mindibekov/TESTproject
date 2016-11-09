@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    {% load static %}
+    <script type="text/javascript" language="javascript" src="{% static "HRONION/js/jquery.min.js" %}" ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/HRONION/img/icon.ico">
+    {% block extra_head %} {% endblock %} 
+    
+    <title> {% block title %} TIManage {{ user.username }} {% endblock %}     </title>
+    <link href="{% static "HRONION/css/bootstrap.css" %}" rel="stylesheet">
+    <script src="{% static "HRONION/js/bootstrap.js"%}"></script>
+    <script type="text/javascript" src=" {% static "HRONION/js/bootstrap-filestyle.js" %}"> </script>
+   	
+   	<style type="text/css">
+   		.Your-TIM { 
+   			margin-top:20px; 
+   			background: #FFFFFF;
+   		}
+   		.padding { 
+   			padding-top:20px;
+   			padding-bottom:20px;
+   			 }
+   		
+   	</style>
+    
+</head>
+
+<body>
+	<div class="container-fluid " >
+		<div class="row padding" style="background: #FAFAFA">
+		  <div class="col-md-8 ">1 строка</div>
+		  <div class="col-md-4">
+		  	  <a href="/dashboard/">{{user.first_name}} {{user.last_name}}</a>
+		  </div>
+		</div>
+
+
+		<div class="row padding Your-TIM"><!-- first row -->
+				<div class="col-md-1"></div>
+				  <div class="col-md-4"><p class="lead"><b>Ваш TiManage</b></p></div>
+				  <div class="col-md-7" align="left">
+					<a href="/dashboard/apps/">
+					 <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Приложения
+					</a>
+				</div>
+
+		</div> <!-- first row -->
+
+
+
+
+		<div class="row top-margin"><!-- information row -->
+		  <div class="col-md-4" >
+		 	<div class="row" align="center">
+		 		Информация
+		 	</div>
+		 	<div class="row" align="center">
+		 		<div class="col-md-6"></div>
+		 	</div>
+		  </div>
+
+		  <div class="col-md-8">
+		  	{% block content %} Менять здесь{% endblock %}
+		  </div>
+		</div><!-- information row -->
+	</div>
+</body>

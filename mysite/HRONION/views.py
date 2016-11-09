@@ -42,6 +42,7 @@ def start(request):
 
 def register(request):
 	check = 1
+
 	if request.method == "POST":
 		error = {}
 		last_name = request.POST["last_name"]
@@ -67,4 +68,12 @@ def register(request):
 		return render(request, 'registration/registration_form.html', {"error":error, "POST":request.POST})	 
 
 
-	return render(request, 'registration/registration_form.html')	
+	return render(request, 'registration/registration_form.html')
+
+def dashboard(request):
+
+		return render(request, 'dashboard_base.html')
+
+def apps(request):
+
+		return render(request, 'dashboard/apps.html')

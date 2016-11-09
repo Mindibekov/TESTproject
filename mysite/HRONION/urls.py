@@ -5,6 +5,8 @@ import HRONION.views as views
 
 
 urlpatterns = [ 
-	url(r'^start/register/', views.register),
+	url(r'^register/', views.register),
 	url(r'^start/', views.start),
+	url(r'^dashboard/$', views.dashboard),	
+	url(r'^dashboard/apps/$', views.apps),
 ]
