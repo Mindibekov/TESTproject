@@ -1,176 +1,221 @@
-<html class="js">
+<html lang="en">
+  <head>
+    {% load static %}
+    <script type="text/javascript" language="javascript" src="{% static "HRONION/js/jquery.min.js" %}" ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/HRONION/img/icon.ico">
+    <title>{% block web_title %} TIManage {{ user.username }}{% endblock %}</title>
+    <link href="{% static "HRONION/css/bootstrap.css" %}" rel="stylesheet">
+    <script src="{% static "HRONION/js/bootstrap.js"%}"></script>
+    <script type="text/javascript" src=" {% static "HRONION/js/bootstrap-filestyle.js" %}"> </script>
+   
+   
 
-<head>
+</head>
 
-  <!-- EXPERIMENT A2 tracking code -->
-  <!-- Google Analytics Content Experiment code -->
-  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
-  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/files/1/0691/5403/t/125/assets/hitsanalytics.js?11608832055738061282&amp;shop=strapping-io.myshopify.com"></script>
-  <script type="text/javascript" async="" src="https://dfjp7gc2z6ooe.cloudfront.net/assets/sky_pilot.js?shop=strapping-io.myshopify.com"></script><script type="text/javascript" async="" src="//cdn.shopify.com/s/javascripts/shopify_stats.js?v=6"></script>
-  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
-  <script type="text/javascript" async="" src="https://tracker.hits.io/hitsio-js-tracker-latest.js"></script>
-  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/files/1/0691/5403/t/125/assets/hitsanalytics.js?11608832055738061282&amp;shop=strapping-io.myshopify.com"></script>
-  <script type="text/javascript" async="" src="https://dfjp7gc2z6ooe.cloudfront.net/assets/sky_pilot.js?shop=strapping-io.myshopify.com"></script><script type="text/javascript" async="" src="http://www.google-analytics.com/analytics.js"></script>
-  <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
-  <script type="text/javascript" async="" src="https://cdn.shopify.com/s/javascripts/trekkie.storefront.min.js?v=2016.09.01.1"></script><script type="text/javascript" async="" src="//cdn.shopify.com/s/javascripts/shopify_stats.js?v=6"></script>
-
- 
-
-  <script src="http://www.google-analytics.com/ga_exp.js?utmxkey=108454052-4&amp;utmx=&amp;utmxx=&amp;utmxtime=1478376116470" type="text/javascript" charset="utf-8"></script>
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-
-
-
-<!-- title tag-->
-<title>
- Timanage
-</title>
-
-
-<!-- styles -->
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link href="//cdn.shopify.com/s/files/1/0691/5403/t/128/assets/style.scss.css?13829517236742464088" rel="stylesheet" type="text/css" media="all">
-
-
-<body id="bootstrap-themes" class="swag-line template-index">
-  <div class="container-overflow-wrap">
-
-  <div class="container">
-    <nav class="navbar navbar-default navbar-tall navbar-full" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#global-nav">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/start/">Timanage.io</a>
+<body>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-2">
+    <p class="text-left">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/start/">Timanage.io</a>
+      </div>
+    </p>
   </div>
-
-  <div class="collapse navbar-collapse" id="global-nav">
-    <div class="navbar-right">
-      <ul class="nav navbar-nav">
+  <div class="col-md-8"><p class="text-center">Добро пожаловать!</p></div>
+  <div class="col-md-2">
+     <div class="collapse navbar-collapse" id="global-nav">
+        <div class="navbar-right">
+          <ul class="nav navbar-nav">
           {% if user.is_authenticated %} 
+<<<<<<< HEAD
           <li>
             <a href="/dashboard/">{{ user.username }}</a>
           </li>
           {% endif %}
-
-      </ul>
-       {% if user.is_authenticated %} 
-       {% else %}
-        <form class="navbar-form navbar-left"  method="post">
-         {% csrf_token %}
-          <div class="form-group">
-           <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
-          </div>
-           <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
-          </div>
-          <button type="submit" class="btn btn-default">Sign in</button>
-        </form>
-      {% endif %}
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="/admin/">admin panel</a>
-          </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <form class="form-inline" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-          <label class="sr-only" for="exampleInputEmail3">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
+=======
+            <li>
+            <a href="#">{{ user.username }}</a>
+            </li>
+          {% endif %} 
+          </ul>
+             {% if user.is_authenticated %} 
+             {% else %}
         </div>
-        <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
+              <form class="navbar-form navbar-left"  method="post">
+               {% csrf_token %}
+                <div class="form-group">
+                 <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
+                </div>
+                <button type="submit" class="btn btn-default">Sign in</button>
+              </form>
+            {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/admin/">admin panel</a>
+                </li>
+            </ul>
+        
+  </div>
+  </div>
+</div> <!-- first row -->
+</div>
+>>>>>>> 1162b5ff9565e55ed99b1ab9a49c6116b813c0c1
+
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8"><p class="text-center"><img src="http://revillise.ru/wp-content/uploads/2014/05/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0-10.jpg" class="img-responsive" alt="Responsive image"></p></div>
+  <div class="col-md-2"></div>
+</div> <!-- second row -->
+
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-2">
+      <p class="text-center">
+        <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_weather&quot;}}" id="wd-wrapper-_weather">
+          <div id="wd-_weather" class="b-widget-data b-wrapper b-wrapper-">
+            <div class="weather" role="complementary" aria-label="Погода">
+              <h1>
+                <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_blue_yes i-bem link_js_inited" onmousedown="cp('v14.weather.title',this);">Погода
+                </a>
+                
+                <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="-6 °C, снегопад" onmousedown="cp('v14.weather.grade',this);">
+                  <i class="b-ico weather__icon weather__icon_ovc_+sn" title="снегопад"></i>
+                  -6 °C
+                </a>
+              </h1>
+                <div class="weather__item">
+                  <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="вечером -8 °C" onmousedown="cp('v14.weather.grade_soon',this);">Вечером&nbsp;-8</a>, &nbsp;
+                  <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="ночью -14 °C" onmousedown="cp('v14.weather.grade_later',this);">ночью&nbsp;-14
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div class="widget__control"><a class="widget__control-icon widget__prefs" title="Настроить" href="/?edit=1#open=_weather">
+            <div class="b-ico b-ico-widget-prefs">
+            </div>
+              </a>
+                <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+                  <div class="b-ico b-ico-widget-rm">
+                  </div>
+                </span>
+          </div>
         </div>
-        <button type="submit" class="btn btn-default">Sign in</button>
-      </form>
+      </p>
     </div>
+  <div class="col-md-2">
+    <p class="text-center">
+      <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_traffic&quot;}}" id="wd-wrapper-_traffic">
+        <div id="wd-_traffic" class="b-widget-data b-wrapper b-wrapper-">
+          <div class="traffic i-bem" data-bem="{&quot;traffic&quot;:{}}" role="complementary" aria-label="Пробки">
+            <h1>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link link_blue_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.title',this);">Пробки
+              </a>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link link_black_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.ball',this);">
+              <i class="b-ico traffic__icon b-ico-traffic-rd"></i>7 баллов
+              </a>
+            </h1>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link traffic__informer traffic__informer-link link_black_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.more',this);">Серьёзные 
+              </a>
+          </div>
+        </div>
+            <div class="widget__control">
+              <a class="widget__control-icon widget__prefs" title="Настроить" href="/?edit=1#open=_traffic">  <div class="b-ico b-ico-widget-prefs">
+                </div>
+              </a>
+                <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+                  <div class="b-ico b-ico-widget-rm">
+                  </div>
+                </span>
+            </div>
+      </div>
+    </p>
   </div>
-</div>   
+  <div class="col-md-2">
+    <p class="text-center">
+      <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_geo&quot;}}" id="wd-wrapper-_geo">
+        <div id="wd-_geo" class="b-widget-data b-wrapper b-wrapper-">
+          <div class="region" role="complementary" aria-label="Карта Красноярска">
+            <h1 class="region__title">
+              <a href="https://yandex.ru/tune/geo/?retpath=https%3A%2F%2Fwww.yandex.ru%2F%3Fdomredir%3D1&amp;nosync=1" class="link b-inline region__setup region__setup_icon" title="Изменить город" target="_self" onmousedown="cp('v14.maps.setup.region',this);">
+                <i class="b-ico b-ico-setup_g"></i>
+              </a>
 
+              <a href="https://yandex.ru/maps/?utm_source=geoblock_maps_krasnoyarsk" class="link link_blue_yes" onmousedown="cp('v14.maps.title.regular',this);">Карта 
+                <span class="region__cityname">
+                  <span class="region__cityname_text">Красноярска</span>
+                  </span>
+              </a>
+            </h1>
+              <div class="region__links">
 
+                <a href="https://taxi.yandex.ru/?from=mtaxi_geoblock_RU-KYA-ALL" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.taxi.taxi_RU-KYA-ALL',this);">Такси
+                </a>
 
+                <a href="https://rasp.yandex.ru/?utm_source=yamain&amp;utm_medium=geoblock&amp;utm_campaign=default" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.rasp.rasp',this);">Расписания
+                </a>
 
-<div class="hero hero-homepage">
-  <span class="glyphicon glyphicon-object-align-left" aria-hidden="true">TI</span>
-  <h1 class="hero-header">Приветствие</h1>
-  <h4 class="text-muted">
-  {% if user.is_authenticated %}
-    <p>Добро пожаловать, {{ user.username }}. Спасибо, что не забываете нас.</p>
-  {% else %}
-    <p>Добро пожаловать, незнакомец. Кто вы?</p>
-    {{her}}
-    </h4>
-     <a class="btn" href="/start/register/">Зарегестрироваться</a>
-  {% endif %} 
-  <p>...</p>
-</div>
-
-
-</div>
-
+                <a href="https://yandex.ru/everest/" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.informer.everest',this);">Панорамы Эвереста
+                </a>
+              </div>
+          </div>
+        </div>
+          <div class="widget__control">
+            <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+              <div class="b-ico b-ico-widget-rm">
+              </div>
+            </span>
+          </div>
+      </div>
+    </p>
   </div>
-
-  
-  <footer class="footer clearfix footer-borderless">
-
-  <ul class="footer-social-buttons">
-    <li class="btn-follow hidden-xs">
-      2
-    </li>
-    <li class="btn-tweet">
-     2
-    </li>
-  </ul>
-
-  <p class="hidden-xs">
-    Designed and built with all the love in the world by
-    <a href="#" target="_blank">@1</a>,
-    <a href="#" target="_blank">@2</a>, and
-    <a href="#" target="_blank">@3</a>.
-  </p>
-
-  <ul class="footer-list">
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">About</a>
-      </li>
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">Terms</a>
-      </li>
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">Privacy</a>
-      </li>
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">Licenses</a>
-      </li>
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">FAQ</a>
-      </li>
-    
-      <li class="footer-list-item">
-        <a class="footer-list-link" href="#">Bootstrap</a>
-      </li>
-    
-  </ul>
-</footer>
+  <div class="col-md-3"></div>
+</div> <!-- third row -->
 
 
+  <div class="col footer" role="contentinfo">
+    <div class="container foot text_gray_yes">
+      <div class="row foot__row">
+        <div class="col foot__business business">
+          <div class="navbar-left">
+            <div class="">
+              <a href="https://www.google.ru/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=google" class="link link_gray_yes business__link" onmousedown="cp('v14.business.direct.title',this);">Директ
+              </a>&nbsp;—&nbsp; 
+              <a href="https://direct.yandex.ru/?from=maintest_ru_razmestitrekl" class="link link_gray_yes business__sublink" onmousedown="cp('v14.business.direct.link.maintest_ru_razmestitrekl',this);">разместить рекламу</a>
+              <a href="https://metrika.yandex.ru/?utm_source=yandexru.v14&amp;utm_medium=web&amp;utm_campaign=static" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.metrika',this);">Метрика</a>
+              <a href="https://www.yandex.ru/adv/?from=main_bottom" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.adv',this);">Реклама</a>
+              <a href="https://kassa.yandex.ru/?_openstat=promo;yandex;" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.kassa',this);">Касса</a>
+            </div>
+          </div>     
+
+          <div class="navbar-right">
+            <div class="col foot__company-links company-links">
+              <div>
+              
+                <a href="https://www.facebook.com/profile.php?id=100000497230141&fref=ts" class="link link_gray_yes company-links__item i-bem link_js_inited">Ivan
+                </a>
+                    
+                <a href="https://www.facebook.com/profile.php?id=100000546358502" class="link link_gray_yes company-links__item i-bem link_js_inited" >Dmitriy
+                </a>
+                               
+                <a href="О нас" class="link link_gray_yes company-links__item i-bem link_js_inited">About
+                </a>
+                ©&nbsp;Дим & Вань 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
   </div>
-</body></html>
+</body>
+
