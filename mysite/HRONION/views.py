@@ -16,11 +16,6 @@ telegram_whom = "both"#v - ваня d - дима, остальное любое 
 # Create your views here.
 def start(request):
 	if request.method == "POST":
-		if request.POST["EMAIL_subscribers"]:
-			subscriber = models.subscribers.objects.create(e_mail=request.POST["EMAIL_subscribers"])
-			subscriber.sub_date = datetime.datetime.now() 
-			subscriber.save()
-			return render(request, 'html/start.html')
 		name = request.POST["login"]
 		password = request.POST["password"]
 		user = auth.authenticate(username=name, password=password)
