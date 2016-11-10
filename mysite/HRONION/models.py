@@ -17,4 +17,8 @@ class users(AbstractUser):
 		return ('%s %s') % (self.username, self.email)
 
 
+# class create_forms(models.Model):
+	
 
+
+		

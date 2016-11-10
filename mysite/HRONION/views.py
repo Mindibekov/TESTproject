@@ -66,9 +66,22 @@ def register(request):
 	return render(request, 'registration/registration_form.html')
 
 def dashboard(request):
+	if request.method == "POST":
+		name = request.POST["login"]
+		password = request.POST["password"]
+		user = auth.authenticate(username=name, password=password)	
 
-		return render(request, 'dashboard_base.html')
+		if user is not None and user.is_active:
+			auth.login(request, user)
+			return render(request, 'html/dashboard_base.html')
+		else:
+			her = 'Не правильные данные для: ' + name
+			return render(request, 'html/start.html', {'her': her})
 
 def apps(request):
 
-		return render(request, 'dashboard/apps.html')
+	return render(request, 'dashboard/apps.html')
+
+def forms(request):
+
+		return render(request, 'dashboard/forms.html')
