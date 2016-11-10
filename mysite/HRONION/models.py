@@ -28,3 +28,5 @@ class subscribers(models.Model):
 	def __str__(self):
 		return self.e_mail
 
+
+
