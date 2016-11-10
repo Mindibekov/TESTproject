@@ -20,21 +20,45 @@
 <body>
 <div class="container-fluid">
 <div class="row">
-  <div class="col-md-2"><p class="text-left">Пригодится</p></div>
-  <div class="col-md-8"><p class="text-center">Основная</p></div>
   <div class="col-md-2">
-     <form class="form-inline" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-          <label class="sr-only" for="exampleInputEmail3">Email address</label>
-            <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
+    <p class="text-left">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/start/">Timanage.io</a>
+      </div>
+    </p>
+  </div>
+  <div class="col-md-8"><p class="text-center">Добро пожаловать!</p></div>
+  <div class="col-md-2">
+     <div class="collapse navbar-collapse" id="global-nav">
+        <div class="navbar-right">
+          <ul class="nav navbar-nav">
+          {% if user.is_authenticated %} 
+            <li>
+            <a href="#">{{ user.username }}</a>
+            </li>
+          {% endif %} 
+          </ul>
+             {% if user.is_authenticated %} 
+             {% else %}
         </div>
-        <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
-        </div>
-        <button type="submit" class="btn btn-default">Sign in</button>
-      </form>
+              <form class="navbar-form navbar-left"  method="post">
+               {% csrf_token %}
+                <div class="form-group">
+                 <input type="text" class="form-control" id="exampleInputEmail3" name="login" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password">
+                </div>
+                <button type="submit" class="btn btn-default">Sign in</button>
+              </form>
+            {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/admin/">admin panel</a>
+                </li>
+            </ul>
+        
+  </div>
   </div>
 </div> <!-- first row -->
 </div>
@@ -47,17 +71,144 @@
 </div> <!-- second row -->
 
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-3"><p class="text-center">Три</p></div>
-  <div class="col-md-3"><p class="text-center">окошка</p></div>
-  <div class="col-md-3"><p class="text-center">нововведений</p></div>
-  <div class="col-md-1"></div>
+  <div class="col-md-3"></div>
+    <div class="col-md-2">
+      <p class="text-center">
+        <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_weather&quot;}}" id="wd-wrapper-_weather">
+          <div id="wd-_weather" class="b-widget-data b-wrapper b-wrapper-">
+            <div class="weather" role="complementary" aria-label="Погода">
+              <h1>
+                <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_blue_yes i-bem link_js_inited" onmousedown="cp('v14.weather.title',this);">Погода
+                </a>
+                
+                <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="-6 °C, снегопад" onmousedown="cp('v14.weather.grade',this);">
+                  <i class="b-ico weather__icon weather__icon_ovc_+sn" title="снегопад"></i>
+                  -6 °C
+                </a>
+              </h1>
+                <div class="weather__item">
+                  <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="вечером -8 °C" onmousedown="cp('v14.weather.grade_soon',this);">Вечером&nbsp;-8</a>, &nbsp;
+                  <a href="https://yandex.ru/pogoda/krasnoyarsk/" class="link link_black_yes i-bem link_js_inited" aria-label="ночью -14 °C" onmousedown="cp('v14.weather.grade_later',this);">ночью&nbsp;-14
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div class="widget__control"><a class="widget__control-icon widget__prefs" title="Настроить" href="/?edit=1#open=_weather">
+            <div class="b-ico b-ico-widget-prefs">
+            </div>
+              </a>
+                <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+                  <div class="b-ico b-ico-widget-rm">
+                  </div>
+                </span>
+          </div>
+        </div>
+      </p>
+    </div>
+  <div class="col-md-2">
+    <p class="text-center">
+      <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_traffic&quot;}}" id="wd-wrapper-_traffic">
+        <div id="wd-_traffic" class="b-widget-data b-wrapper b-wrapper-">
+          <div class="traffic i-bem" data-bem="{&quot;traffic&quot;:{}}" role="complementary" aria-label="Пробки">
+            <h1>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link link_blue_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.title',this);">Пробки
+              </a>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link link_black_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.ball',this);">
+              <i class="b-ico traffic__icon b-ico-traffic-rd"></i>7 баллов
+              </a>
+            </h1>
+              <a href="https://yandex.ru/maps/62/krasnoyarsk/probki" class="link traffic__informer traffic__informer-link link_black_yes i-bem link_js_inited" onmousedown="cp('v14.traffic.more',this);">Серьёзные 
+              </a>
+          </div>
+        </div>
+            <div class="widget__control">
+              <a class="widget__control-icon widget__prefs" title="Настроить" href="/?edit=1#open=_traffic">  <div class="b-ico b-ico-widget-prefs">
+                </div>
+              </a>
+                <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+                  <div class="b-ico b-ico-widget-rm">
+                  </div>
+                </span>
+            </div>
+      </div>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p class="text-center">
+      <div class="i-bem widget widget_mode_plain widgets__item b-widget-fixed widget_js_inited" data-bem="{&quot;widget&quot;:{&quot;id&quot;:&quot;_geo&quot;}}" id="wd-wrapper-_geo">
+        <div id="wd-_geo" class="b-widget-data b-wrapper b-wrapper-">
+          <div class="region" role="complementary" aria-label="Карта Красноярска">
+            <h1 class="region__title">
+              <a href="https://yandex.ru/tune/geo/?retpath=https%3A%2F%2Fwww.yandex.ru%2F%3Fdomredir%3D1&amp;nosync=1" class="link b-inline region__setup region__setup_icon" title="Изменить город" target="_self" onmousedown="cp('v14.maps.setup.region',this);">
+                <i class="b-ico b-ico-setup_g"></i>
+              </a>
+
+              <a href="https://yandex.ru/maps/?utm_source=geoblock_maps_krasnoyarsk" class="link link_blue_yes" onmousedown="cp('v14.maps.title.regular',this);">Карта 
+                <span class="region__cityname">
+                  <span class="region__cityname_text">Красноярска</span>
+                  </span>
+              </a>
+            </h1>
+              <div class="region__links">
+
+                <a href="https://taxi.yandex.ru/?from=mtaxi_geoblock_RU-KYA-ALL" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.taxi.taxi_RU-KYA-ALL',this);">Такси
+                </a>
+
+                <a href="https://rasp.yandex.ru/?utm_source=yamain&amp;utm_medium=geoblock&amp;utm_campaign=default" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.rasp.rasp',this);">Расписания
+                </a>
+
+                <a href="https://yandex.ru/everest/" class="link link_black_yes link_bold_yes region__link" onmousedown="cp('v14.maps.links.informer.everest',this);">Панорамы Эвереста
+                </a>
+              </div>
+          </div>
+        </div>
+          <div class="widget__control">
+            <span class="widget__control-icon widget__remove widget__remove-shy" title="Удалить" role="button" tabindex="0">
+              <div class="b-ico b-ico-widget-rm">
+              </div>
+            </span>
+          </div>
+      </div>
+    </p>
+  </div>
+  <div class="col-md-3"></div>
 </div> <!-- third row -->
 
-<div class="row">
-  <div class="col-md-12"><p class="text-center">Footers</p></div>
- 
-</div> <!-- fourth row -->
 
+  <div class="col footer" role="contentinfo">
+    <div class="container foot text_gray_yes">
+      <div class="row foot__row">
+        <div class="col foot__business business">
+          <div class="navbar-left">
+            <div class="">
+              <a href="https://www.google.ru/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=google" class="link link_gray_yes business__link" onmousedown="cp('v14.business.direct.title',this);">Директ
+              </a>&nbsp;—&nbsp; 
+              <a href="https://direct.yandex.ru/?from=maintest_ru_razmestitrekl" class="link link_gray_yes business__sublink" onmousedown="cp('v14.business.direct.link.maintest_ru_razmestitrekl',this);">разместить рекламу</a>
+              <a href="https://metrika.yandex.ru/?utm_source=yandexru.v14&amp;utm_medium=web&amp;utm_campaign=static" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.metrika',this);">Метрика</a>
+              <a href="https://www.yandex.ru/adv/?from=main_bottom" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.adv',this);">Реклама</a>
+              <a href="https://kassa.yandex.ru/?_openstat=promo;yandex;" class="link link_gray_yes business__link i-bem link_js_inited" onmousedown="cp('v14.business.kassa',this);">Касса</a>
+            </div>
+          </div>     
 
+          <div class="navbar-right">
+            <div class="col foot__company-links company-links">
+              <div>
+              
+                <a href="https://www.facebook.com/profile.php?id=100000497230141&fref=ts" class="link link_gray_yes company-links__item i-bem link_js_inited">Ivan
+                </a>
+                    
+                <a href="https://www.facebook.com/profile.php?id=100000546358502" class="link link_gray_yes company-links__item i-bem link_js_inited" >Dmitriy
+                </a>
+                               
+                <a href="О нас" class="link link_gray_yes company-links__item i-bem link_js_inited">About
+                </a>
+                ©&nbsp;Дим & Вань 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
 </body>
+
